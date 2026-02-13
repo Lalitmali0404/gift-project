@@ -1,0 +1,7 @@
+- [x] Add gallery HTML section to index.html
+- [x] Add gallery CSS styles to style.css (romantic frames, animations, responsive, hover effects)
+- [x] Update script.js to show gallery on gift button click and implement slideshow functionality
+- [x] Test the gallery display and functionality
+- [x] Add big heading "I Love You so much Sakshi 🥹🩷" to gallery
+- [x] Add poem at bottom of gallery
+- [x] Add floating love, heart, kiss emojis to gallery

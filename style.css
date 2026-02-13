@@ -1,0 +1,397 @@
+/* CSS Variables - Enhanced with Gold and Deep Red */
+:root {
+    /* Original Colors */
+    --background-color-1: #ffafbd;
+    --background-color-2: #ffc3a0;
+    --button-color: #ff6b6b;
+    --button-hover: #ff8787;
+    --text-color: #ff4757;
+
+    /* NEW Elegant Accents */
+    --gold: #d4af37;
+    --deep-red: #8b0000;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+
+    /* Original Animations */
+    --float-duration: 15s;
+    --float-distance: 50px;
+    --bounce-speed: 0.5s;
+    --heart-explosion-size: 1.5;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--background-color-1), var(--background-color-2));
+    font-family: 'Poppins', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- NEW: Password Gate Overlay (Unlock Screen) --- */
+.gate-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, #fff 0%, #ffdee5 100%);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s;
+}
+
+.gate-card {
+    background: var(--glass-bg);
+    padding: 50px;
+    border-radius: 30px;
+    border: 3px solid var(--gold);
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.gate-decor {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+#gatePass {
+    border: none;
+    border-bottom: 2px solid var(--gold);
+    padding: 10px;
+    font-size: 1.3rem;
+    text-align: center;
+    outline: none;
+    background: transparent;
+    color: var(--deep-red);
+    font-family: 'Dancing Script', cursive;
+}
+
+.pass-error {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* --- MAIN CONTAINER --- */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 20px;
+    position: relative;
+    z-index: 10;
+    overflow: visible !important;
+}
+
+.main-content-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- FLOATING ELEMENTS --- */
+.floating-elements {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart, .bear {
+    position: absolute;
+    font-size: 2rem;
+    animation: float var(--float-duration) linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+    100% { transform: translateY(-100px) translateX(var(--float-distance)) rotate(360deg); }
+}
+
+/* --- BUTTONS --- */
+.cute-btn {
+    background: var(--button-color);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.cute-btn:hover {
+    transform: scale(1.1);
+    background: var(--button-hover);
+}
+
+.hidden { display: none !important; }
+
+/* --- LOVE METER & SLIDER --- */
+.love-meter {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    overflow: visible;
+    padding: 10px 0;
+}
+
+.love-meter p {
+    font-size: 1.2em;
+    margin: 15px 0;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.slider {
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(to right, #ff6b6b, #ff8787, #ffb8b8);
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 35px; height: 35px;
+    background: linear-gradient(135deg, #ff4757, #ff6b6b);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+}
+
+/* --- GIFT SECTION --- */
+.gift-container {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 2px dashed var(--gold);
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 0 0 20px 20px;
+}
+
+.gift-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--deep-red), var(--button-color));
+    border: 2px solid var(--gold) !important;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 15px var(--gold); }
+    100% { transform: scale(1); }
+}
+
+/* --- MUSIC PLAYER --- */
+.music-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-btn {
+    background: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- CELEBRATION --- */
+.celebration-text {
+    font-size: 3em;
+    color: var(--text-color);
+    font-weight: bold;
+    margin: 30px 0;
+    animation: bounce var(--bounce-speed) infinite alternate;
+}
+
+@keyframes explode {
+    0% { transform: scale(0); }
+    50% { transform: scale(var(--heart-explosion-size)); }
+    100% { transform: scale(1); }
+}
+
+/* --- PHOTO GALLERY --- */
+.gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+}
+
+.gallery-floating-elements {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gallery-heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 15s linear infinite;
+}
+
+.gallery-container {
+    position: relative;
+    max-width: 900px;
+    max-height: 90vh;
+    text-align: center;
+    color: white;
+}
+
+.photo-frame {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(45deg, var(--gold), var(--deep-red));
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    overflow: hidden;
+}
+
+.photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, var(--gold), var(--deep-red), var(--gold));
+    border-radius: 25px;
+    z-index: -1;
+    animation: frameGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes frameGlow {
+    0% { box-shadow: 0 0 20px var(--gold); }
+    100% { box-shadow: 0 0 40px var(--deep-red); }
+}
+
+.photo-frame img {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 10px;
+    transition: opacity 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--deep-red);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-nav.prev {
+    left: -80px;
+}
+
+.gallery-nav.next {
+    right: -80px;
+}
+
+.close-gallery {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.gallery-poem {
+    margin-top: 20px;
+    padding: 0 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 100%;
+    text-align: center;
+}
+
+/* Original Helper Classes */
+.secret-answer { position: fixed; bottom: 20px; right: 20px; opacity: 0.2; }
+.super-love { font-size: 1.5em; color: var(--text-color); font-weight: bold; }
+
+
+/* Add/Update these specific sections in your style.css */
+
+.gate-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: radial-gradient(circle, #ffffff 0%, #ffdee5 100%);
+    z-index: 99999; /* Ensures it is on top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.main-content-hidden {
+    display: none; /* Content is non-existent until password is correct */
+}
+
+/* When the gate is "opened" we apply this class via JS */
+.gate-opened {
+    transform: translateY(-100vh); /* Slide up effect */
+    opacity: 0;
+}
+
+.gate-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px;
+    border-radius: 40px;
+    border: 3px solid var(--gold);
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(255, 71, 87, 0.2);
+}

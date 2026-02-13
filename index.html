@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💝</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="passwordGate" class="gate-overlay">
+        <div class="gate-card">
+            <div class="gate-decor">🧸 🌹 💋 💐</div>
+            <h2 class="gate-title">Unlock Our Story</h2>
+            <p class="gate-subtitle">Enter the password to see your surprise...</p>
+            <input type="password" id="gatePass" placeholder="Enter Password..." oninput="checkPassword(this)">
+            <div id="passError" class="pass-error hidden">Not quite right, my love...</div>
+        </div>
+    </div>
+
+    <div id="mainContainer" class="main-content-hidden">
+        <div class="floating-elements"></div>
+
+        <div class="container">
+            <h1 id="valentineTitle"></h1>
+            
+            <div id="musicControls" class="music-controls">
+                <button id="musicToggle" class="music-btn">🎵 Play Music</button>
+                <audio id="bgMusic" loop>
+                    <source id="musicSource" type="audio/mpeg">
+                </audio>
+            </div>
+
+            <div class="question-section" id="question1">
+                <h2 id="question1Text"></h2>
+                <button class="cute-btn" onclick="moveButton(this)" id="yesBtn1"></button>
+                <button class="cute-btn" onclick="moveButton(this)" id="noBtn1"></button>
+                <div class="secret-answer">
+                    <button class="cute-btn special" onclick="showNextQuestion(2)" id="secretAnswerBtn"></button>
+                </div>
+            </div>
+
+            <div class="question-section hidden" id="question2">
+                <h2 id="question2Text"></h2>
+                <div class="love-meter">
+                    <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
+                    <p>
+                        <span class="love-value-container"><span id="startText"></span> (<span id="loveValue">100</span>%)</span>
+                        <span id="extraLove" class="hidden"></span>
+                    </p>
+                </div>
+                <button class="cute-btn" onclick="showNextQuestion(3)" id="nextBtn"></button>
+            </div>
+
+            <div class="question-section hidden" id="question3">
+                <h2 id="question3Text"></h2>
+                <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
+                <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
+            </div>
+
+            <div class="celebration hidden" id="celebration">
+                <h2 id="celebrationTitle"></h2>
+                <p class="celebration-text" id="celebrationMessage"></p>
+                
+                <div class="gift-container">
+                    <button class="cute-btn gift-btn" onclick="showGallery()">🎁 One Gift For You: Our Memories</button>
+                    <p class="gift-hint">❤️</p>
+                </div>
+
+                <div id="photoGallery" class="gallery hidden">
+                    <div class="gallery-floating-elements"></div>
+                    <div class="gallery-container">
+                        <h1 class="gallery-heading">I Love You so much Sakshi 🥹🩷</h1>
+                        <div class="photo-frame">
+                            <img id="galleryImage" src="" alt="Memory">
+                        </div>
+                        <button class="gallery-nav prev" onclick="prevImage()">&#10094;</button>
+                        <button class="gallery-nav next" onclick="nextImage()">&#10095;</button>
+                        <div class="gallery-poem">
+                            <p>Every photo, every trace,<br>The magic of your smiling face.<br>I saved them all, the big and small,<br>To show I'll catch you when you fall.</p>
+                            <p>No need for dates or flowers bought,<br>You're every single waking thought.<br>From morning light to evening dew,<br>My favorite "Perfect" will always be you.</p>
+                            <p>"I LOVE YOU ♥️"</p>
+                        </div>
+                    </div>
+                    <button class="close-gallery" onclick="closeGallery()">Close Gallery</button>
+                </div>
+                <p class="celebration-emojis" id="celebrationEmojis"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
